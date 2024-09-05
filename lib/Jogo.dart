@@ -51,4 +51,58 @@ class _JogoState extends State<Jogo>{
       });
     }
   }
+  @override 
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Jo-Ken-Po",),
+        centerTitle: true,
+        backgroundColor: Colors.orangeAccent,
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,  //centraliza tudo embaixo desta propriedade
+        children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(top:32,bottom: 16),
+          child: Text(
+            "Escolha do App",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              ),
+            ),  
+          ),
+          Image(image: this._imagemApp,),
+          Padding(padding: EdgeInsets.only(top:32,bottom: 16),
+          child: Text(
+            this._mensagem,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              ),
+            ),  
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () => _opcaoSelecionar("pedra"),
+                child: Image.asset("assets/pedra.png", height: 100)
+              ),
+              GestureDetector(
+                onTap: () => _opcaoSelecionar("papel"),
+                child: Image.asset("assets/papel.png", height: 100)
+              ),
+              GestureDetector(
+                onTap: () => _opcaoSelecionar("tesoura"),
+                child: Image.asset("assets/tesoura.png", height: 100)
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }
